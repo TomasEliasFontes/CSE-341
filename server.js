@@ -12,6 +12,14 @@ app.use((req, res, next) => {
   next();
 });
 
+// 1) Sirve archivos estáticos desde frontend/
+app.use(express.static(path.join(__dirname, 'frontend')));
+
+// 2) Para la ruta raíz, devuelve index.html
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, 'frontend', 'index.html'))
+);
+
 app.use('/professional', professionalRoutes);
 
 mongodb.initDb((err) => {
