@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
+const path = require('path');
 const professionalRoutes = require('./routes/professional');
 
 const app = express();
